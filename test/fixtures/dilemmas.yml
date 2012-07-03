@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  title: MyString
+  dilemma: MyString
+  status: MyText
+  ans_opt: MyString
+
+two:
+  id: 
+  title: MyString
+  dilemma: MyString
+  status: MyText
+  ans_opt: MyString

@@ -1,0 +1,25 @@
+<h1>Vote on a dilemma</h1>
+
+	<%= form_for [@dilemma, @response] do |f| %>
+	<p>
+  		<b>Title:</b>
+  		<%= @dilemma.title %>
+	</p>
+	<p>
+		<b>Dilemma:</b>
+		<%= @dilemma.dilemma %>
+	</p>
+	<% end %>
+
+<h3>Please help me get off the fence, vote on my dilemma.</h3>
+
+<%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
+<p> <%= f.radio_button :yes, "1" %>Yes </p>
+<p> <%= f.radio_button :yes, "0" %>No </p>
+<p> <%= f.submit "Create" %> </p>
+<% end %>
+
+
+
+
+

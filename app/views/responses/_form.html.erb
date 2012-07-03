@@ -1,0 +1,33 @@
+<%= form_for [@dilemma, :response] do |f| %>
+
+  <div  >
+    <%= f.label :id %><br />
+	<%= f.text_field :id %>
+  </div>
+
+  <div  >
+    <%= f.label :title %><br />
+	<%= f.text_field :title %>
+  </div>
+
+  <div  >
+    <%= f.label :dilemma %><br />
+	<%= f.text_field :dilemma %>
+  </div>
+  
+<h3>Please help me get off the fence, vote on my dilemma.</h3>
+<%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
+  <div  >
+    <%= f.label :Vote_Yes %><br />
+    <%= f.check_box :yes %>
+  </div>
+<div  >
+    <%= f.label :Vote_No %><br />
+    <%= f.check_box :no %>
+  </div>
+<% end %>
+
+  <div >
+    <%= f.submit %>
+  </div>
+<% end %>

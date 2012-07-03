@@ -1,0 +1,28 @@
+<br>
+<br>
+<center>
+<h1>Fence Dweller</h1>
+<br>
+<h3><i>Search for your dilemma</i></h3>
+
+<br>
+
+<%= form_for(@string) do |f| %>
+<p>
+    <%= f.label :id %><br />
+	<%= f.text_field :id %>
+  </p>
+
+  <p>
+    <%= f.label :title %><br />
+	<%= f.text_field :title %>
+  </p>
+
+<% end %>
+
+<br>
+<%= link_to "Tell us your dilemma", new_dilemma_path  %>
+<br>
+</center>
+</body>
+

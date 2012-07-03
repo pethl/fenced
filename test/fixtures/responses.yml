@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  option: MyString
+  yes: MyString
+  no: MyString
+  user: MyString
+  dilemma: 
+
+two:
+  option: MyString
+  yes: MyString
+  no: MyString
+  user: MyString
+  dilemma: 

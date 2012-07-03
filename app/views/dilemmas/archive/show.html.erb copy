@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @dilemma.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @dilemma.title %>
+</p>
+
+<p>
+  <b>Your Dilemma:</b>
+  <%= @dilemma.dilemma %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @dilemma.status %>
+</p>
+
+<p>
+  <b>Answer option:</b>
+  <%= @dilemma.ans_opt %>
+</p>
+
+<div class="table"> 
+<table border="1" >
+  <tr>
+	<th>How many people have responded so far:</th>
+	<td> <%= (@dilemma).responses.count %> </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<br>
+<br>
+<h3>Please help me get off the fence, vote on my dilemma.</h3>
+<%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
+  <div class="field">
+    <%= f.label :Vote_Yes %><br />
+    <%= f.check_box :yes %>
+  </div>
+<div class="field">
+    <%= f.label :Vote_No %><br />
+    <%= f.check_box :no %>
+  </div> 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_dilemma_path(@dilemma) %> |
+<%= link_to 'Back', dilemmas_path %>

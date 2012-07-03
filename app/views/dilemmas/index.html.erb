@@ -1,0 +1,42 @@
+<h1>List of all Dilemmas</h1>
+
+<%= form_tag dilemmas_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<table border="1" >
+  <tr>
+    <th>Unique Identity</th>
+    <th>Twitter Title</th>
+    <th>My Dilemma</th>
+    <th>Status</th>
+    <th>Answer Option</th>
+    <th>Count of Responses</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dilemmas.each do |dilemma| %>
+  <tr>
+    <td><%= dilemma.id %></td>
+    <td><%= dilemma.title %></td>
+    <td><%= dilemma.dilemma %></td>
+    <td><%= dilemma.status %></td>
+    <td align="center"><%= dilemma.ans_opt %></td>
+	<td align="center"><%= dilemma.responses.count %> </td>
+    <td><%= link_to 'Show Details', dilemma %></td>
+	<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response) %></td>
+		<td><%= link_to 'Who_Voted?', dilemma_response_path(dilemma,response) %></td>
+    <td><%= link_to 'Delete', dilemma, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'What is your Dilemma?', new_dilemma_path %>

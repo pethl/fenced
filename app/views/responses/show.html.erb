@@ -1,0 +1,49 @@
+<h1>See all responses for a dilemma</h1>
+
+<div class="table"> 
+<table border="0" >
+  <tr>
+	<th>Dilemma:</th>
+	<td> <%= (@dilemma).dilemma %> </td>
+ </tr>
+</table>
+</div>
+
+<div class="table"> 
+<table border="0" >
+  <tr>
+	<th>Responses:</th>
+	<td> <%= (@dilemma).responses.count %> </td>
+  </tr>
+</table>
+</div>
+
+<br>
+
+<h3>Who voted</h3>
+
+<%= form_tag dilemma_response_path, :method => 'get' do %>
+<% end %>
+
+<table border="1" >
+  <tr>
+    <th>User</th>
+    <th>Answered No</th>
+    <th>Answered Yes</th>
+    <th>D_id</th>
+  </tr>
+
+<% @responses.each do |response| %>
+  <tr>
+    <td><%= (response).user %></td>
+    <td align="center"><%= (response).no %></td>
+    <td align="center"><%= (response).yes %></td>
+    <td align="center"><%= (response).dilemma_id %></td>
+  </tr>
+<% end %>
+
+
+</table>
+
+<%= link_to 'Back to All Dilemmas', dilemmas_path(@dilemma) %>
+
