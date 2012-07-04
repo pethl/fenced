@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(:version => 20120618210024) do
 
   create_table "dilemmas", :force => true do |t|
+    t.string   "uuid",       :limit => 36
     t.string   "title"
     t.text     "dilemma"
     t.string   "status"
     t.string   "ans_opt"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "responses", :force => true do |t|

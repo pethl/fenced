@@ -12,6 +12,17 @@ development:
   password: ikwtcbs
   socket: /tmp/mysql.sock
 
+test:
+ adapter: mysql2
+ encoding: utf8
+ database: fenced_test
+ pool: 5
+ username: root
+ password: ikwtcbs
+ socket: /tmp/mysql.sock
+
+
+ 
 #production: my production db uses postgresql - heroku standard db for now, see gem file production
 
 # Warning: The database defined as "test" will be erased and

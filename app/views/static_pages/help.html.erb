@@ -1,2 +1,15 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<% provide(:title, 'Help') %>
+<br>
+<br>
+<center>
+<h1>Fence Dweller</h1>
+<br>
+<h3><i>Help</i></h3>
+<br>
+<%= link_to "Tell us your dilemma", new_dilemma_path  %>
+<br>
+<br>
+<br>
+<%= link_to "Search for a dilemma", dilemmas_path  %>
+</center>
+</body>

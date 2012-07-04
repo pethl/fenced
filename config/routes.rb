@@ -1,11 +1,8 @@
 Fenced::Application.routes.draw do
+
   get "static_pages/help"
 
   get "static_pages/options"
-
-  get "static_pages/find"
-
-  get "static_pages/index"
 
   get "static_pages/about"
 
@@ -16,8 +13,6 @@ Fenced::Application.routes.draw do
 
   
   get "home/index"
-  get "home/options"
-  get "home/find"
   get "dilemmas/find"
   
   
