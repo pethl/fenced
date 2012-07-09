@@ -1,20 +1,19 @@
-<h1>List of all Dilemmas</h1>
+<h1>All Our Dilemmas</h1>
 
 <%= form_tag dilemmas_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search by ID", :name => nil %>
   </p>
 <% end %>
 
-<table border="1" >
+<table class="table table-bordered" >
   <tr>
-    <th>Unique Identity</th>
-    <th>Twitter Title</th>
-    <th>My Dilemma</th>
+    <th>ID</th>
+    <th>Dilemma</th>
     <th>Status</th>
-    <th>Answer Option</th>
-    <th>Count of Responses</th>
+    <th align="center">Answer Option</th>
+    <th align="center">Count of Responses</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,15 +23,14 @@
 <% @dilemmas.each do |dilemma| %>
   <tr>
     <td><%= dilemma.id %></td>
-    <td><%= dilemma.title %></td>
     <td><%= dilemma.dilemma %></td>
     <td><%= dilemma.status %></td>
     <td align="center"><%= dilemma.ans_opt %></td>
 	<td align="center"><%= dilemma.responses.count %> </td>
-    <td><%= link_to 'Show Details', dilemma %></td>
-	<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response) %></td>
-		<td><%= link_to 'Who_Voted?', dilemma_response_path(dilemma,response) %></td>
-    <td><%= link_to 'Delete', dilemma, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', dilemma, :class => 'btn btn-mini' %></td>
+	<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></td>
+		<td><%= link_to 'Who Voted?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></td>
+    <td><%= link_to "Delete", dilemma, method: :delete, data: { confirm: 'Are you sure?' }, :class =>'btn btn-mini btn-danger' %></td>
   </tr>
 <% end %>
 </table>

@@ -13,28 +13,29 @@
  
 
   <div class="field">
-    <%= f.label :id %><br />
+    <%= f.label :id %>
 	<%= f.text_field :id %>
   </div>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
 	<%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :dilemma %><br />
+    <%= f.label :dilemma %>
 	<%= f.text_field :dilemma %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+    <%= f.label :status %>
     <%= f.text_field :status %>
   </div>
   <div class="field">
-    <%= f.label :ans_opt %><br />
+    <%= f.label :ans_opt %>
     <%= f.text_field :ans_opt %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class =>'btn btn-mini'%>
   </div>
+<br>
 <% end %>

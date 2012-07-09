@@ -1,13 +1,14 @@
-<% provide(:title, 'Home') %>
-<br>
-<br>
-<center>
-<h1>Fence Dweller</h1>
-<br>
-<h3><i>Need a decision made?<br>Share the dilemma and let the tweetosphere solve it for you.</i></h3>
-<br>
-<%= link_to "Get Started", static_pages_options_path  %>
+<div class="center hero-unit">
+  <h1>Fence Dweller</h1>
 
-</center>
-</body>
+  <h3>
+    Share a dilemma and let the tweetosphere solve it for you.
+  </h3>
+<br>
+<%= link_to image_tag("fenced.png", alt: "Fenced"), 'http://www.fencedweller.com' %>
+<br>
+  <%= link_to "Get Started", new_dilemma_path, class: "btn btn-large btn-primary" %>
+</div>
+
+
 
