@@ -14,18 +14,25 @@
 <h4>Please help me get off the fence, vote on my dilemma.</h4>
 <br>
 <br>	
+<div class="row">
+  <div class="span4 offset2">
 <%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
 
-<label class="checkbox.inline"> 
-		<input type="checkbox">
-		<%= :yes %>
-		<label class="checkbox.inline"> 
-				<input type="checkbox">
-				<%= :no %>
-</label>
-
+<table class="table table-bordered" >
+  <tr>
+    <th>Yes</th>
+    <th>No</th>
+  </tr>
+<tr>
+    <td><%= f.radio_button :yes, "Yes" %></td>
+    <td><%= f.radio_button :yes, "No" %></td>
+</tr>
+</table>
 
  <%= f.submit "Record My Vote", :class =>'btn btn-mini' %>
+</div>
+</div>
+
 
 
 

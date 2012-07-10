@@ -1,32 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h3> <id="notice"><%= notice %></h3>
+
+<br>
+<br>
+<blockquote>
+  <%= @dilemma.dilemma %>
+</blockquote>
 
 <p>
   <b>Id:</b>
   <%= @dilemma.id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @dilemma.title %>
-</p>
-
-<p>
-  <b>Your Dilemma:</b>
-  <%= @dilemma.dilemma %>
+	<br>
 </p>
 
 <p>
   <b>Status:</b>
   <%= @dilemma.status %>
 </p>
+<br>
 
-<p>
-  <b>Answer option:</b>
-  <%= @dilemma.ans_opt %>
-</p>
-
-<div class="table"> 
-<table border="1" >
+<div class="table table-bordered"> 
   <tr>
 	<th>How many people have responded so far:</th>
 	<td> <%= (@dilemma).responses.count %> </td>
