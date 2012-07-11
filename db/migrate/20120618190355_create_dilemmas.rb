@@ -2,7 +2,7 @@ class CreateDilemmas < ActiveRecord::Migration
   def change
     create_table :dilemmas do |t|
       t.integer :id
-      t.string :uuid, :limit => 36, :primary => true
+      t.string :uuid, :limit => 36
       t.string :title
       t.text :dilemma
       t.string :status
