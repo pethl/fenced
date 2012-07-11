@@ -13,6 +13,7 @@ class Dilemma < ActiveRecord::Base
         self.status  ||= "Open"           #will set the default value only if it's nil
         self.ans_opt  ||= "1"           #will set the default value only if it's nil
         self.title  ||= "1"           #will set the default value only if it's nil
+        self.uuid  ||= "101"           #will set the default value only if it's nil
       end
 
       def self.search(search)
