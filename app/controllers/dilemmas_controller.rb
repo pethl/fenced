@@ -48,7 +48,7 @@ class DilemmasController < ApplicationController
 
     respond_to do |format|
       if @dilemma.save
-        format.html { redirect_to @dilemma, notice: 'Thanks now we have your dilemma' }
+        format.html { redirect_to @dilemma, notice: 'Thanks, now we have your dilemma we can help you start to solve it.' }
         format.json { render json: @dilemma, status: :created, location: @dilemma }
       else
         format.html { render action: "new" }
@@ -56,7 +56,7 @@ class DilemmasController < ApplicationController
       end
     end
   end
-
+  
   # PUT /dilemmas/1
   # PUT /dilemmas/1.json
   def update
