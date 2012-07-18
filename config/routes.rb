@@ -18,6 +18,8 @@ Fenced::Application.routes.draw do
   get "home/index"
   
   get "dilemmas/find"
+  
+  match '/signup',  to: 'users#new'
     
   match '/' => "home#index", :as => :home
   match '/' => "home#options", :as => :home

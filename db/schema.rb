@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618210024) do
+ActiveRecord::Schema.define(:version => 20120718153336) do
 
   create_table "dilemmas", :force => true do |t|
     t.string   "uuid",       :limit => 36
@@ -34,5 +34,17 @@ ActiveRecord::Schema.define(:version => 20120618210024) do
   end
 
   add_index "responses", ["dilemma_id"], :name => "index_responses_on_dilemma_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "fullname"
+    t.string   "email"
+    t.string   "twittername"
+    t.string   "yob"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
