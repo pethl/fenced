@@ -1,0 +1,23 @@
+<h3> please vote on this dilemma</h3>
+
+<div class="row">
+  <div class="span4 offset2">
+		<br>
+			<blockquote>
+  				<%= @dilemma.dilemma %>
+			</blockquote>
+
+			<p>
+  				<b>This dilemma is </b>
+  				<%= @dilemma.status %>
+			</p>
+		<br>
+			<p>
+  				<%= (@dilemma).responses.count %> 
+  				<b> people have already voted on this dilemma</b>
+			</p>
+		<br>
+		<%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %>
+
+	</div>
+</div>

@@ -1,4 +1,5 @@
 class DilemmasController < ApplicationController
+  require 'bitly'
 
   
   # GET /dilemmas
@@ -24,6 +25,8 @@ class DilemmasController < ApplicationController
       format.json { render json: @dilemma }
     end
   end
+
+ 
 
   # GET /dilemmas/new
   # GET /dilemmas/new.json

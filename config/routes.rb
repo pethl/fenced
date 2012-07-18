@@ -1,5 +1,7 @@
 Fenced::Application.routes.draw do
 
+  get "users/new"
+
   get "static_pages/help"
 
   get "static_pages/options"
@@ -10,14 +12,13 @@ Fenced::Application.routes.draw do
 
   resources :dilemmas do
     resources :responses
+     
   end
-
-
   
   get "home/index"
+  
   get "dilemmas/find"
-  
-  
+    
   match '/' => "home#index", :as => :home
   match '/' => "home#options", :as => :home
 

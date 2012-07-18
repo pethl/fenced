@@ -11,27 +11,21 @@
     </div>
   <% end %>
  
-
+		
   <div class="field">
     <%= f.label :id %>
 	<%= f.text_field :id %>
   </div>
-<div class="field">
-    <%= f.label :uuid %>
-	<%= f.text_field :uuid %>
-  </div>
 
   <div class="field">
     <%= f.label :dilemma %>
-  <%= f.text_area :dilemma, :size => "120x6" %>
+  	<%= f.text_area :dilemma, :size => "120x6" %>
   </div>
 
   <div class="field">
     <%= f.label "Voting Period" %>
-<%= select( "title", "id", { "a day" => "1", "a week" => "2", "a month" => "3"}) %>
-
+	<%= select( "title", "id", { "a day" => "1", "a week" => "2", "a month" => "3"}) %>
   </div>
-
 
   <div class="field">
     <%= f.label :status %>
@@ -44,5 +38,12 @@
   <div class="actions">
     <%= f.submit :class =>'btn btn-mini'%>
   </div>
-<br>
+
+
+
+
 <% end %>
+
+
+
+

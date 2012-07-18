@@ -21,13 +21,24 @@
 <div class="table table-bordered"> 
   <tr>
 	<th>How many people have responded so far:</th>
-	<td> <%= (@dilemma).responses.count %> </td>
+	<td> <%= (@dilemma).responses.count %> </td> 
   </tr>
 </table>
 <br>
 </div>
 
+<h4>Post this link to Twitter to let your followers vote on your dilemma</h4>
 <br>
+<h3>http://fenced.herokuapp.com/dilemmas/<%= @dilemma.id %></h3>
 
+<%= auto_link body %>
+<br>
+<h4>Get a tiny url for this<h4>
+
+<div class="disabled">
+	</div>
+
+<br>
+<br>
 <%= link_to 'Edit', edit_dilemma_path(@dilemma) %> |
 <%= link_to 'Back', static_pages_options_path %>

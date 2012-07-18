@@ -9,6 +9,8 @@ gem 'bootstrap-sass', '2.0.0'
 
 gem 'heroku'
 
+gem 'bitly'
+
 group :development, :test do
   	gem 'pg', '0.12.2'
 	gem 'rspec-rails', '2.10.0'
