@@ -8,6 +8,10 @@ Fenced::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Force all access to the app over SSL, use Strict-Transport-Security, 
+    # and use secure cookies.
+    config.force_ssl = true
+  
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
