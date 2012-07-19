@@ -1,11 +1,16 @@
+<div class="row">
+  <div class="span8 offset2">
+	
 <h1>All Our Dilemmas</h1>
 
-<%= form_tag dilemmas_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
+<form>
+	<%= text_field_tag :search, params[:search]  %>
     <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+	</form>
+
+
+<%= form_tag dilemmas_path, :method => 'get' do %>
+  <% end %>
 
 <table class="table table-bordered" >
   <tr>
@@ -38,3 +43,5 @@
 <br />
 
 <%= link_to 'What is your Dilemma?', new_dilemma_path %>
+</div>
+</div>

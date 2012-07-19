@@ -1,4 +1,10 @@
 <% provide(:title, @user.fullname) %>
+
+<div class="container">
+			<% flash.each do |key, value| %>
+			    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			   <% end %>
+
 <h1><%= @user.fullname %></h1>
 
 <div class="row">

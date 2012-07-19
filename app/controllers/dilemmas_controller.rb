@@ -51,7 +51,7 @@ class DilemmasController < ApplicationController
 
     respond_to do |format|
       if @dilemma.save
-        format.html { redirect_to @dilemma, notice: 'Thanks, now we have your dilemma we can help you start to solve it.' }
+        format.html { redirect_to @dilemma, notice: 'You have created a dilemma!' }
         format.json { render json: @dilemma, status: :created, location: @dilemma }
       else
         format.html { render action: "new" }
