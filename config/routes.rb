@@ -15,21 +15,20 @@ Fenced::Application.routes.draw do
   get "static_pages/notbuilt"
      
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+    match '/signup',  to: 'users#new'
+    match '/signin',  to: 'sessions#new'
+    match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :dilemmas do
-    resources :responses
-  
-  
-     
+    resources :responses     
   end
   
   get "home/index"
-  
   get "dilemmas/find"
   
-  match '/signup',  to: 'users#new'
-  
-    
+  match '/signup',  to: 'users#new'    
   match '/' => "home#index", :as => :home
   match '/' => "home#options", :as => :home
 
