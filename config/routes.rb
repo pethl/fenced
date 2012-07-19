@@ -10,8 +10,14 @@ Fenced::Application.routes.draw do
 
   get "static_pages/contact"
 
+  get "static_pages/aftervote"
+     
+  resources :users
+
   resources :dilemmas do
     resources :responses
+  
+  
      
   end
   
@@ -20,6 +26,7 @@ Fenced::Application.routes.draw do
   get "dilemmas/find"
   
   match '/signup',  to: 'users#new'
+  
     
   match '/' => "home#index", :as => :home
   match '/' => "home#options", :as => :home

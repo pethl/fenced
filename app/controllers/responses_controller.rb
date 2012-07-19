@@ -5,7 +5,7 @@ class ResponsesController < ApplicationController
       
       @response = @dilemma.responses.create!(params[:response])
       
-      redirect_to dilemma_path(@dilemma)
+      redirect_to static_pages_aftervote_path
     end
   
     def count

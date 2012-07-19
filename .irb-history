@@ -1,0 +1,65 @@
+p = Post.new(:content => "A new post")
+p.save
+p.errors.full_messages
+t = post.find.2
+t=post.find(2)
+t = Dilemma.find.id[78977]
+t = "78977"
+s = dilemma.id[t]
+s = Dilemma.find.id[t]
+puts Dilemma
+t = Dilemma.find
+t = Dilemma.where(:id => "78977")
+puts t.id
+puts t.title
+puts t[title]
+puts t[:title]
+puts t
+s = Responses.create(:yes => "Y", :dilemma => t)
+s = Response.create(:yes => "Y", dilemma => t)
+s = Response.create(:yes => "Y", :dilemma_id => t)
+d = Dilemma.all
+b = Response.all
+d = Dilemma.find(2)
+d = Dilemma.find(3)
+b = Response.where(:dilemma_id => 3)
+g = Response.create(:yes => "one", :dilemma_id => 3)
+g = Response.create(:yes => 1, :dilemma_id => 3)
+g = save
+g.save
+e = Response.where(:dilemma_id => 3)
+eit
+u = Response.where(:dilemma_id => '77')
+t = Dilemma.find(77)
+t.responses.count
+User.new
+user = User.new(name: "Fence Dweller", email: "fd@example.com", yob:"1972")
+user = User.new(fullname: "Fence Dweller", email: "fd@example.com", yob:"1972")
+user.save
+user
+user.yob
+user.create(fullname:"strawPoll", yob:"1980")
+user.create(fullname: "strawPoll", yob: "1980")
+User.create(fullname: "strawPoll", yob: "1980")
+User.find(2)
+bundle exec rspec spec/models/user_spec.rb 
+bundle exec rspec spec/models/user_spec.rb
+User.create(name: "Michael Hartl", email: "mhartl@example.com", password:"foobar", password_confirmation:"foobar", twittername:"mikeyH", yob:"1960")
+name:, email: "mhartl@example.com", password:"foobar", password_confirmation:"foobar", twittername:"mikeyH", yob:"1960")
+EXIT
+User.create(fullname: "Michael Hartl", email: "mhartl@example.com", password:"foobar", password_confirmation:"foobar", twittername:"mikeyH", yob:"1960")
+user.password_digest
+User.password_digest
+user.authenticate("invalid")
+User.password_digest(3)
+User.authenticate("invalid")
+Users
+users
+users.find.all
+user.find.all
+User.find(1)
+rails ENV="development"
+User.find(3)
+User.all
+User.first
+exit

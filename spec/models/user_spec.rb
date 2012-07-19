@@ -23,7 +23,7 @@ describe User do
 
   subject { @user }
 
-  it { should respond_to(:full) }
+  it { should respond_to(:fullname) }
   it { should respond_to(:email) }
   it { should respond_to(:yob) }
   it { should respond_to(:twittername) }
