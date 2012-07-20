@@ -22,11 +22,7 @@
 	<il><strong>How long do your followers have to vote?</strong>
 	<%= select( "title", "id", { "a day" => "1", "a week" => "2", "a month" => "3"}) %>
   </div>
- <div class="field">
-    <%= f.label "Id: (this will be system defaulted eventually)" %>
-	<%= f.text_field :id %>
-  </div>
-  
+
  <div class="field">
     <%= f.label "Answer Style: (other options will be added in the future)" %>
 	<%= select( "ans_opt", "id", { "Yes_No" => "1", "EnterOptions" => "2", "EnterAList" => "3"}) %>

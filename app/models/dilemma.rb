@@ -16,7 +16,7 @@ class Dilemma < ActiveRecord::Base
   attr_accessible :ans_opt, :dilemma, :id, :status, :title, :uuid
 
   
-  validates :id, :presence =>true, :uniqueness =>true
+  validates :id, :uniqueness =>true
   validates :dilemma, :presence =>true
   validates :status, :inclusion => { :in => "Open, Closed, Suspended" }
   validates :ans_opt, :inclusion => { :in => "1, 2, 3" }
@@ -27,7 +27,7 @@ class Dilemma < ActiveRecord::Base
         self.status  ||= "Open"           #will set the default value only if it's nil
         self.ans_opt  ||= "1"           #will set the default value only if it's nil
         self.title  ||= "1"           #will set the default value only if it's nil
-        self.uuid  ||= "101"           #will set the default testingtestingvalue only if it's nil
+      
       end
 
       def self.search(search)
@@ -42,6 +42,16 @@ class Dilemma < ActiveRecord::Base
 has_many :responses
   accepts_nested_attributes_for :responses
  
+   before_save :create_randomid
+ 
+  private
+
+      def create_randomid
+        id = SecureRandom.random_number.to_s
+        id = id[12..-1]
+        id = id.to_i
+        self.id = id
+      end
   
 
 end
