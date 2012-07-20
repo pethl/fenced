@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="span8 offset2">
+	
+<h1>All Our Users</h1>
+
+<form>
+	<%= text_field_tag :search, params[:search]  %>
+    <%= submit_tag "Search", :name => nil %>
+ 	</form>
+
+
+<%= form_tag users_path, :method => 'get' do %>
+  <% end %>
+
+<table class="table table-bordered" >
+  <tr>
+    <th>Fullname</th>
+    <th>Email</th>
+    <th>Twittername</th>
+    <th>Year of Birth</th>
+     <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.fullname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.twittername %></td>
+    <td><%= user.yob %></td>
+    <td><%= link_to 'Show', user, :class => 'btn btn-mini' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'What is your Dilemma?', new_dilemma_path %>
+</div>
+</div>

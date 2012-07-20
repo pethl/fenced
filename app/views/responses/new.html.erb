@@ -4,11 +4,9 @@
   <div class="span6 offset3">
 	<%= form_for [@dilemma, @response] do |f| %>
 
-
-	<p>
-		<blockquote>
-		<%= @dilemma.dilemma %>
-	</p>
+	<div class="controls">
+		<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+	</div>
 	<% end %>
 </blockquote>
 <br>

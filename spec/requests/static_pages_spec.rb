@@ -13,9 +13,9 @@ describe "Static pages" do
 
   describe "About page" do
 
-      it "should have the content 'About Us'" do
+      it "should have the content 'About FenceDweller'" do
         visit '/static_pages/about'
-        page.should have_content('About Us')
+        page.should have_content('About FenceDweller')
       end
     end
 
@@ -27,7 +27,13 @@ describe "Static pages" do
       end      
     end
 
+    describe "Contact page" do
 
+        it "should have the content 'Contact FenceDweller'" do
+          visit '/static_pages/contact'
+          page.should have_content('Contact FenceDweller')
+        end
+      end
 end
 
 
