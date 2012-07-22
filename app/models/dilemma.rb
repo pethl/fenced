@@ -43,6 +43,7 @@ has_many :responses
   accepts_nested_attributes_for :responses
  
    before_save :create_randomid
+   before_save :bitly_body
  
   private
 
@@ -53,5 +54,13 @@ has_many :responses
         self.id = id
       end
   
+      def bitly_body
 
+          t = self.id.to_s
+          long_url= "http://fenced.herokuapp.com/dilemmas/" + t
+          Bitly.use_api_version_3
+          bitly = Bitly.new('fencedweller','R_7b81aebd65ac551c78983d0ae57a0253')
+          body = bitly.shorten(long_url)  
+                  self.shorten_url = body.short_url
+        end
 end

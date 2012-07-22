@@ -1,38 +1,40 @@
 <div class="row">
-  <div class="span8 offset3">
+  <div class="span6 offset4">
 	<h1> <id="notice"><%= notice %></h1>
 <br>
 <br>
- <b>Your Dilemma:</b>
-<div class="controls">
-	<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
-</div>
 
-<p>
-  <b>Status:</b>
-  <%= @dilemma.status %>
-</p>
+ 	<b>Your Dilemma:</b>
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+			</div>
+
+	<b>Status:</b>
+  		<%= @dilemma.status %>
+<br>
+<br>
+	<b>Post this link to Twitter get the voting started</b>
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><%= @dilemma.shorten_url %>
+		</div>
+<br>	
+	<%= link_to "Post to Twitter", static_pages_notbuilt_path, class: "btn btn-large btn-info" %> 
+
+<br>
 <br>
 
 <div class="table table-bordered"> 
+<table>
   <tr>
 	<th>How many people have responded so far:</th>
 	<td> <%= (@dilemma).responses.count %> </td> 
   </tr>
 </table>
-<br>
 </div>
 
-<h3>Post this link to Twitter get the voting started</h3>
-	<div class="controls">
-		<span class="input-xlarge uneditable-input">http://fenced.herokuapp.com/dilemmas/<%= @dilemma.id %>
-	</div>
 <br>
-	  <%= link_to "Get a tiny url", static_pages_notbuilt_path, class: "btn btn-large btn-info" %> | <%= link_to "Post to Twitter", static_pages_notbuilt_path, class: "btn btn-large btn-info" %> 
+<%= link_to 'Home', static_pages_options_path %> |
 
-<br>
-<br>
-<%= link_to 'Edit Dilemma', edit_dilemma_path(@dilemma) %> |
-<%= link_to 'Home', static_pages_options_path %>
+<%= link_to 'Edit Dilemma', edit_dilemma_path(@dilemma) %>
 </div>
 </div>
