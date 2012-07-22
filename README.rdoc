@@ -1,3 +1,6 @@
+
+This application has been created by Lisa Pethick - admin@fencedweller.com
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
