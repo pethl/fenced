@@ -1,0 +1,20 @@
+<li>
+  
+  	<table class="table table-bordered" >
+	 
+	  <tr>
+	    <td><%= link_to dilemma.id, dilemma %></td>
+	    <td><%= dilemma.dilemma %></td>
+	    <td><%= dilemma.status %></td>
+	    <td><%= dilemma.shorten_url %></td>
+	    <td align="center"><%= dilemma.ans_opt %></td>
+		<td align="center"><%= dilemma.responses.count %> </td>
+		<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></td>
+			<td><%= link_to 'Voting?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></td>
+	    <td><i class="icon-remove"></i><%= link_to " Delete", dilemma, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+	  </tr>
+
+	</table>
+
+
+</li>

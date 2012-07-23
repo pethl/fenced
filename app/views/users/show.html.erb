@@ -5,17 +5,36 @@
 			    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			   <% end %>
 
+
+		      <%= render 'shared/error_messages' %>
+		
 <h1><%= @user.fullname %></h1>
 
 <div class="row">
-  <div class="span3 offset5">
-    <%= @user.fullname %>, <br>
-<%= @user.email %>
+  <div class="span6 offset4">
+	
+	<b>Fullname:</b>
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><%= @user.fullname %>
+			</div>
+	
+			<b>Email:</b>
+				<div class="controls">
+					<span class="input-xlarge uneditable-input"><%= @user.email %>
+					</div>
+						<b>Twittername:</b>
+							<div class="controls">
+								<span class="input-xlarge uneditable-input"><%= @user.twittername %>
+								</div>
+								<b>Year of Birth:</b>
+									<div class="controls">
+										<span class="input-xlarge uneditable-input"><%= @user.yob %>
+										</div>
 
 	<br>
 	<br>
-	<br>
-		  <%= link_to "Get Started", new_dilemma_path, class: "btn btn-large btn-primary" %>
+		  <%= link_to "Get Started", new_dilemma_path, class: "btn btn-large btn-primary" %> | 	  
+		<%= link_to "Edit Profile", edit_user_path, class: "btn btn-large btn-info" %>
 
   </div>
 </div>

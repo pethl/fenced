@@ -20,12 +20,12 @@
   </div>
   <div class="field">
 	<il><strong>How long do your followers have to vote?</strong>
-	<%= select( "title", "id", { "a day" => "1", "a week" => "2", "a month" => "3"}) %>
+	 <%= f.select(:title, [['an hour', 1], ['a day', 2], ['a week', 3], ['a month', 4]]) %>
   </div>
 
  <div class="field">
     <%= f.label "Answer Style: (other options will be added in the future)" %>
-	<%= select( "ans_opt", "id", { "Yes_No" => "1", "EnterOptions" => "2", "EnterAList" => "3"}) %>
+ <%= f.select(:ans_opt, [['Yes or No', 1], ['Enter Options', 2], ['Enter a list of options', 3]]) %>
   </div>
   <div class="actions">
     <%= f.submit :class =>'btn btn-mini btn-info'%>

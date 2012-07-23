@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120722075057) do
+ActiveRecord::Schema.define(:version => 20120723135410) do
 
   create_table "dilemmas", :force => true do |t|
-    t.string   "uuid",        :limit => 36
+    t.string   "uuid",            :limit => 36
     t.string   "title"
     t.text     "dilemma"
     t.string   "status"
     t.string   "ans_opt"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "shorten_url"
+    t.datetime "close_timestamp"
   end
 
   create_table "responses", :force => true do |t|

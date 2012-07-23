@@ -1,16 +1,14 @@
 class DilemmasController < ApplicationController
   require 'bitly'
+    before_filter :admin_user,     only: :destroy
 
   
   # GET /dilemmas
   # GET /dilemmas.json
   def index
     @dilemmas = Dilemma.search(params[:search])
-  
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @dilemmas }
-    end
+    
+    @dilemmas = Dilemma.paginate(page: params[:page])
   end
 
 

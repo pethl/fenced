@@ -1,3 +1,5 @@
+<% provide(:title, "My Dilemma") %>
+
 <div class="row">
   <div class="span6 offset4">
 	<h1> <id="notice"><%= notice %></h1>
@@ -9,9 +11,9 @@
 			<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
 			</div>
 
-	<b>Status:</b>
-  		<%= @dilemma.status %>
-<br>
+	<p>This Dilemma is <b><%= @dilemma.status %> </b></p>
+	<p>Closing time for this Dilemma is <b><%= l @dilemma.close_timestamp, :format => :short %></p></b>
+<br>		
 <br>
 	<b>Post this link to Twitter get the voting started</b>
 		<div class="controls">
