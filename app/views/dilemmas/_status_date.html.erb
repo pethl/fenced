@@ -1,0 +1,9 @@
+
+<% if @dilemma.status == "Open" %>
+	<p>This Dilemma is <b><%= @dilemma.status %> </b></p>
+		<p>Closing time for this Dilemma is <b><%= l @dilemma.close_timestamp, :format => :short %></p></b>
+   <% else %>
+ 		<p>This Dilemma is now <b><%= @dilemma.status %> </b></p>
+		<p>Closing time for this Dilemma was <b><%= l @dilemma.close_timestamp, :format => :short %></p></b>
+
+  <% end %>

@@ -42,9 +42,9 @@ class Dilemma < ActiveRecord::Base
 has_many :responses
   accepts_nested_attributes_for :responses
  
- before_save :create_randomid
-   before_save :bitly_body
-   before_save :set_close_time
+ before_create :create_randomid
+   before_create :bitly_body
+   before_create :set_close_time
  
   private
 
