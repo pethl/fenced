@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723135410) do
+ActiveRecord::Schema.define(:version => 20120720142435) do
 
   create_table "dilemmas", :force => true do |t|
     t.string   "uuid",            :limit => 36
@@ -19,11 +19,14 @@ ActiveRecord::Schema.define(:version => 20120723135410) do
     t.text     "dilemma"
     t.string   "status"
     t.string   "ans_opt"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
     t.string   "shorten_url"
     t.datetime "close_timestamp"
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
+
+  add_index "dilemmas", ["user_id", "created_at"], :name => "index_dilemmas_on_user_id_and_created_at"
 
   create_table "responses", :force => true do |t|
     t.string   "option"

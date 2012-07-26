@@ -14,6 +14,8 @@
 
 class Dilemma < ActiveRecord::Base
   attr_accessible :ans_opt, :dilemma, :id, :status, :title, :uuid, :close_timestamp
+  belongs_to :user
+  validates :user_id, presence: true
 
   
   validates :id, :uniqueness =>true
@@ -39,7 +41,8 @@ class Dilemma < ActiveRecord::Base
         end
       end
 
-has_many :responses
+
+has_many :responses, dependent: :destroy
   accepts_nested_attributes_for :responses
  
  before_create :create_randomid
@@ -77,5 +80,5 @@ has_many :responses
         end
       end
       
-      
+  default_scope order: 'dilemmas.created_at DESC'    
 end

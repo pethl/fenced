@@ -1,40 +1,38 @@
 <% provide(:title, @user.fullname) %>
 
-<div class="container">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+
+
 			<% flash.each do |key, value| %>
 			    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			   <% end %>
 
-
 		      <%= render 'shared/error_messages' %>
 		
-<h1><%= @user.fullname %></h1>
+	<section>
+		<h3><%= @user.fullname %></h3><br>
+		<b>	<%= @user.email %>
+			<%= @user.twittername %></b>	
+	</section>
 
-<div class="row">
-  <div class="span6 offset4">
+</div>
+
+<div class="span8">
 	
-	<b>Fullname:</b>
-		<div class="controls">
-			<span class="input-xlarge uneditable-input"><%= @user.fullname %>
-			</div>
-	
-			<b>Email:</b>
-				<div class="controls">
-					<span class="input-xlarge uneditable-input"><%= @user.email %>
-					</div>
-						<b>Twittername:</b>
-							<div class="controls">
-								<span class="input-xlarge uneditable-input"><%= @user.twittername %>
-								</div>
-								<b>Year of Birth:</b>
-									<div class="controls">
-										<span class="input-xlarge uneditable-input"><%= @user.yob %>
-										</div>
+    <% if @user.dilemmas.any? %>
+      <h3>Dilemmas (<%= @user.dilemmas.count %>)</h3>
+      <ol class="dilemmas">
+        <%= render @dilemmas %>
+      </ol>
+      <%= will_paginate @dilemmas %>
+    <% end %>
 
 	<br>
 	<br>
 		  <%= link_to "Get Started", new_dilemma_path, class: "btn btn-large btn-primary" %> | 	  
 		<%= link_to "Edit Profile", edit_user_path, class: "btn btn-large btn-info" %>
-
   </div>
+</div>
 </div>

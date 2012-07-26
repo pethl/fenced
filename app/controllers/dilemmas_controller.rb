@@ -45,7 +45,8 @@ class DilemmasController < ApplicationController
   # POST /dilemmas
   # POST /dilemmas.json
   def create
-    @dilemma = Dilemma.new(params[:dilemma])
+
+    @dilemma = current_user.dilemmas.build(params[:dilemma])
 
     respond_to do |format|
       if @dilemma.save
@@ -57,6 +58,8 @@ class DilemmasController < ApplicationController
       end
     end
   end
+  
+  
   
   # PUT /dilemmas/1
   # PUT /dilemmas/1.json
