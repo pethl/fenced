@@ -20,7 +20,8 @@
 	
 	<table class="table table-bordered" >
 	  <tr>
-	    <th>ID</th>
+		<th>User</th>    
+		<th>ID</th>
 	    <th>Dilemma</th>
 	    <th>Status</th>
 	    <th>Url</th>
@@ -29,13 +30,14 @@
  		<th align="center">R. Type</th>
 	    <th></th>
 	    <th></th>
-	    <th></th>
+	    <th>User D.</th>
 	  </tr>
 	
  	<% @dilemmas.each do |dilemma| %>
 
 	<tr>
-	    <td><%= link_to dilemma.id, dilemma %></td>
+		<td><%= dilemma.user_id %></td>    
+		<td><%= link_to dilemma.id, dilemma %></td>
 	    <td><%= dilemma.dilemma %></td>
 	    <td><%= dilemma.status %></td>
 	    <td><%= dilemma.shorten_url %></td>
@@ -44,7 +46,13 @@
 		<td align="center"><%= dilemma.responses.count %> </td>
 		<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></td>
 			<td><%= link_to 'Voting?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></td>
-	    <td><%= link_to " Delete", dilemma, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+			<td><% if current_user?(dilemma.user) %>
+			    <%= link_to "Delete", dilemma, method: :delete,
+			                                     data: { confirm: "You sure?" },
+			                                     title: dilemma.id %>
+			 <% end %></td>
+			
+	    
 	  </tr>
 	  <% end %>
 		</table>

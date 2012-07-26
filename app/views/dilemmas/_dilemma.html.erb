@@ -1,7 +1,12 @@
 <li>
-	<span class="status"><%= dilemma.status %></span> | 
-  <span class="dilemma"><%= dilemma.dilemma %></span>
+	  <%= link_to dilemma.status, dilemma %> | 
+  <span class="dilemma"><%= dilemma.dilemma %></span><br>
   <span class="timestamp">
     Created <%= time_ago_in_words(dilemma.created_at) %> ago.
   </span>
+<% if current_user?(dilemma.user) %>
+    <%= link_to "delete", dilemma, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: dilemma.id %>
+  <% end %>
 </li>

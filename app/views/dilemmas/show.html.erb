@@ -22,22 +22,12 @@
 		</div>
 <br>	
 	<%= link_to "Post to Twitter", static_pages_notbuilt_path, class: "btn btn-large btn-info" %> 
-
 <br>
 <br>
-
-<div class="table table-bordered"> 
-<table>
-  <tr>
-	<th>How many people have responded so far:</th>
-	<td> <%= (@dilemma).responses.count %> </td> 
-  </tr>
-</table>
-</div>
-
 <br>
 <%= link_to 'Home', static_pages_options_path %> |
+<%= link_to 'My Profile', user_path(@dilemma.user_id) %> |
 
-<%= link_to 'Edit Dilemma', edit_dilemma_path(@dilemma) %>
+<%= link_to 'Edit This Dilemma', edit_dilemma_path(@dilemma) %>
 </div>
 </div>

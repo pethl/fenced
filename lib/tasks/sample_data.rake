@@ -23,6 +23,12 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+                   
+        users = User.all(limit: 6)
+                  50.times do
+                  dilemma = Faker::Lorem.sentence(3)
+                  users.each { |user| user.dilemmas.create!(dilemma: dilemma) }
+                  end               
     end
   end
 end

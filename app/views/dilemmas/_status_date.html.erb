@@ -5,5 +5,19 @@
    <% else %>
  		<p>This Dilemma is now <b><%= @dilemma.status %> </b></p>
 		<p>Closing time for this Dilemma was <b><%= l @dilemma.close_timestamp, :format => :short %></p></b>
-
+		
   <% end %>
+<br>
+	<% t = (@dilemma).responses.count %>
+	<% if t > 0 %>
+	    <div class="table table-bordered"> 
+		<table>
+		  <tr>
+			<th>How many people have responded so far:</th>
+			<td> <%= (@dilemma).responses.count %> </td> 
+		  </tr>
+		</table>
+		</div>
+	<% else %>
+	<p>No-one has responded yet.</p>
+	  <% end %>

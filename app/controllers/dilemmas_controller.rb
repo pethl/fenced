@@ -1,5 +1,7 @@
 class DilemmasController < ApplicationController
   require 'bitly'
+    before_filter :signed_in_user,  only: [:create, :edit, :destroy]
+    before_filter :correct_user,   only: :destroy
     before_filter :admin_user,     only: :destroy
 
   
@@ -88,7 +90,20 @@ class DilemmasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private    
+    
+    def correct_user
+          @dilemma = current_user.dilemmas.find_by_id(params[:id])
+          redirect_to root_path if @dilemma.nil?
+        end
+    
 
+    
+    def admin_user
+      @dilemma = current_user.dilemmas.find_by_id(params[:admin ])
+          redirect_to(root_path) unless current_user.admin?
+    end
   
   
 end
