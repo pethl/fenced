@@ -13,6 +13,9 @@ gem 'bootstrap-will_paginate', '0.0.6'
 
 gem 'heroku'
 
+gem 'twitter'
+gem 'oauth'
+
 gem 'bitly'
 
 group :development, :test do

@@ -19,14 +19,20 @@ class DilemmasController < ApplicationController
   def show
         
     @dilemma = Dilemma.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @dilemma }
-    end
+    
+    if params['post_to_twitter']
+       respond_to do |format|
+           user = @dilemma.user_id.to_s
+           tweet = "@" + user + ": Follow link to vote on my question - " + @dilemma.shorten_url
+           Twitter.update(tweet)
+       end
+     elsif
+       respond_to do |format|
+           format.html # show.html.erb
+           format.json { render json: @dilemma }
+       end
+     end 
   end
-
- 
 
   # GET /dilemmas/new
   # GET /dilemmas/new.json
@@ -89,7 +95,7 @@ class DilemmasController < ApplicationController
       format.html { redirect_to dilemmas_url }
       format.json { head :no_content }
     end
-  end
+  end  
   
   private    
     
@@ -98,13 +104,19 @@ class DilemmasController < ApplicationController
           redirect_to root_path if @dilemma.nil?
         end
     
-
-    
     def admin_user
       @dilemma = current_user.dilemmas.find_by_id(params[:admin ])
           redirect_to(root_path) unless current_user.admin?
     end
-  
+
+    def post_to_twitter
+
+      require 'twitter'
+      require 'oauth'
+      user = @dilemma.user_id.to_s
+      tweet = "@" + user + ": Follow link to vote on my question - " + @dilemma.shorten_url
+      Twitter.update(tweet)
+    end
   
 end
 

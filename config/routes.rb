@@ -1,7 +1,6 @@
 Fenced::Application.routes.draw do
 
 
-
   get "static_pages/help"
 
   get "static_pages/options"
@@ -11,7 +10,7 @@ Fenced::Application.routes.draw do
   get "static_pages/contact"
 
   get "static_pages/aftervote"
-
+  
   get "static_pages/notbuilt"
      
   resources :users

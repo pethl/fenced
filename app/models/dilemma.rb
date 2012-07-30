@@ -48,6 +48,7 @@ has_many :responses, dependent: :destroy
  before_create :create_randomid
    before_create :bitly_body
    before_create :set_close_time
+   before_create :initial_post_twitter
  
   private
 
@@ -80,5 +81,13 @@ has_many :responses, dependent: :destroy
         end
       end
       
+      
+      def initial_post_twitter
+        require 'twitter'
+        require 'oauth'
+        user = self.user_id.to_s
+        tweet = "@" + user + ": Follow this link to vote on my dilemma - " + self.shorten_url
+        Twitter.update(tweet)
+      end
   default_scope order: 'dilemmas.created_at DESC'    
 end
