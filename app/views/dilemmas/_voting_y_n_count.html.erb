@@ -1,0 +1,31 @@
+<% t = @dilemma %>
+<% y = t.responses.where(:yes => "Yes") %>
+<% n = t.responses.where(:yes => "No") %>
+<% yc = y.count%>
+<% nc = n.count%>
+<% yesmsg = "blank"%>
+<% nomsg = "blank"%>
+
+
+<% if yc > 1 %>
+	<% yesmsg = yc.to_s + " Yes votes"%>
+
+<% elsif yc < 1 %>
+	<% yesmsg = "There are no Yes votes" %>
+
+<% else %>
+<% yesmsg = yc.to_s + " Yes vote" %>
+
+<% end %>
+
+
+<% if nc > 1 %>
+	<% nomsg = nc.to_s + " No votes"%>
+<% elsif nc < 1 %>
+	<% nomsg = "There are zero No votes" %>
+<% else %>
+<% nomsg = nc.to_s + " No vote" %>
+<% end %>
+
+<h3><%= yesmsg %> | <%= nomsg %></h3> 
+

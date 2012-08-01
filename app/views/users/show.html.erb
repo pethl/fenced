@@ -2,8 +2,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span4">
-
+    <div class="span3">
 
 			<% flash.each do |key, value| %>
 			    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
@@ -12,15 +11,14 @@
 		      <%= render 'shared/error_messages' %>
 		
 	<section>
-		<h3><%= @user.fullname %></h3><br>
-		<b>	<%= @user.email %>
+		<h1><%= @user.fullname %></h1>
+		<b>	<%= @user.email %><br>
 			<%= @user.twittername %></b>	
 	</section>
-
 </div>
 
 <div class="span8">
-	
+	<br>
     <% if @user.dilemmas.any? %>
       <h3>Dilemmas (<%= @user.dilemmas.count %>)</h3>
       <ol class="dilemmas">

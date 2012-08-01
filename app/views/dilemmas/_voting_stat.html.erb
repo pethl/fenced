@@ -1,0 +1,9 @@
+		
+	<% t = (@dilemma).responses.count %>
+	<% if t > 0 && t < 2 %>
+			<h3><%= (@dilemma).responses.count %> person has responded</h3>
+			<% elsif t > 1 %>
+			<h3><%= (@dilemma).responses.count %> people have responded</h3>
+	<% else %>
+	<p>No-one has responded yet.</p>
+	  <% end %>

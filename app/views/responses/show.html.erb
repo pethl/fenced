@@ -1,50 +1,42 @@
-<h1>See all responses for a dilemma</h1>
+<% provide(:title, 'Respones') %>
+<br><br>
 
-<div class="table"> 
-<table border="0" >
-  <tr>
-	<th>Dilemma:</th>
-	<td> <%= (@dilemma).dilemma %> </td>
- </tr>
-</table>
-</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+	
+    <div class="span3">
+		<h1>Responses to<br> this dilemma</h1>
+    </div>
 
-<div class="table"> 
-<table border="0" >
-  <tr>
-	<th>Responses:</th>
-	<td> <%= (@dilemma).responses.count %> </td>
-  </tr>
-</table>
-</div>
+    <div class="span6"><br>
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+		</div>
+<br>		
+	<p><%= render "dilemmas/voting_stat" %></p>
+<br>		
+	<p><%= render "dilemmas/voting_y_n_count" %></p>
+
 
 <br>
+	<b>Who voted?</b>
 
-<h3>Who voted</h3>
+	<div class="row">
+		<div class="span6">
+			
+	<p><%= render "show_voting" %></p>
+			
+		</div>
+	</div>
+	
+	<%= link_to 'Back to All Dilemmas', @dilemma %>
 
-<div class="row">
-	<div class="span6 offset2">
-<%= form_tag dilemma_response_path, :method => 'get' do %>
-<% end %>
-
-<table class="table table-bordered" >
-  <tr>
-    <th>User</th>
-    <th>Vote</th>
-    <th>D_id</th>
-  </tr>
-
-<% @responses.each do |response| %>
-  <tr>
-    <td><%= (response).user %></td>
-    <td align="center"><%= (response).yes %></td>
-    <td align="center"><%= (response).dilemma_id %></td>
-  </tr>
-<% end %>
-
-
-</table>
 </div>
 </div>
-<%= link_to 'Back to All Dilemmas', @dilemma %>
+</div>
+
+
+
+
+
 

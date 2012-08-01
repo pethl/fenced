@@ -1,0 +1,19 @@
+<%= form_tag dilemma_response_path, :method => 'get' do %>
+			<% end %>
+
+<table class="table table-bordered table-condensed" >
+  <tr>
+    <th>User</th>
+    <th>When</th>
+    <th>Vote</th>
+  </tr>
+
+<% @responses.each do |response| %>
+  <tr>
+    <td><%= (response).user %></td>
+    <td><%= l (response).created_at, :format => :short %></td>
+    <td align="center"><%= (response).yes %></td>
+  </tr>
+<% end %>
+
+</table>

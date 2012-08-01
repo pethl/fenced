@@ -1,7 +1,15 @@
-<h1>Vote on this dilemma</h1>
+<% provide(:title, 'Respond') %>
+<br><br>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	
+<h1>Respond to<br> this dilemma</h1>
+    
+</div>
+    <div class="span6">
+<br>
 	<%= form_for [@dilemma, @response] do |f| %>
 
 	<div class="controls">
@@ -9,14 +17,11 @@
 	</div>
 	<% end %>
 </blockquote>
-<br>
-<br>
-<b>Please help me get off the fence, vote on my dilemma.</b>
-<br>
 <br>	
 <%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
 
-<table class="table table-bordered" >
+<div class="span3">
+<table class="table table-condensed" >
   <tr>
     <th>Yes</th>
     <th>No</th>
@@ -27,7 +32,8 @@
 </tr>
 </table>
 
- <%= f.submit "Record My Vote", :class =>'btn btn-mini' %>
+ <%= f.submit "Record My Vote", :class =>'btn btn-large btn-info' %>
+</div>
 </div>
 </div>
 

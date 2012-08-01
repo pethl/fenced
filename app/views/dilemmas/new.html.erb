@@ -1,35 +1,53 @@
-<h1>Tell us your dilemma, share....</h1>
-<%= form_for(@dilemma) do |f| %>
-  <% if @dilemma.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dilemma.errors.count, "error") %> prohibited this dilemma from being saved:</h2>
-      	<ul>
-      		<% @dilemma.errors.full_messages.each do |msg| %>
-        	<li><%= msg %></li>
-      		<% end %>
-      	</ul>
-    </div>
-  <% end %>
- 
-<div class="row">
-  <div class="span7 offset3">
+<% provide(:title, "Create dilemma") %>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
 	
+		<h1>Tell us your dilemma, share....</h1>
+		<br><br><br><br><br><br><br>
+		<h6>When you click "Create" <b>FenceDweller</b> will tweet a link
+		<br>to this dilemma along with <b>your twitter hashtag</b> 
+		<br>so that all your followers can come and vote.</h6>
+	</div>
+ 
+  <div class="span8">
+	
+	<%= form_for(@dilemma) do |f| %>
+	  <% if @dilemma.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@dilemma.errors.count, "error") %> prohibited this dilemma from being saved:</h2>
+	      	<ul>
+	      		<% @dilemma.errors.full_messages.each do |msg| %>
+	        	<li><%= msg %></li>
+	      		<% end %>
+	      	</ul>
+	    </div>
+	  <% end %>
+	
+	<br><br>
    <div class="field">
 	<il><strong>What is your dilema?</strong><br>
   	<%= f.text_area :dilemma, :size => "120x4", :value => "Write your dilemma here. Remember to make it a Yes or No question and please don't be offensive or we might have to close your account." %>
   </div>
   <div class="field">
-	<il><strong>How long do your followers have to vote?</strong>
-	 <%= f.select(:title, [['an hour', 1], ['a day', 2], ['a week', 3], ['a month', 4]]) %>
-  </div>
-
- <div class="field">
-    <%= f.label "Answer Style: (other options will be added in the future)" %>
- <%= f.select(:ans_opt, [['Yes or No', 1], ['Enter Options', 2], ['Enter a list of options', 3]]) %>
-  </div>
+	<il><strong>How long do your followers have to vote?</strong><br> 
+		<div class="span3">
+		<table class="table table-condensed" >
+			<tr>
+			<th><%= f.label :hour, "Hour" %><%= f.radio_button  :title, 1 %></th>
+			<th><%= f.label :day, "Day" %><%= f.radio_button  :title, 2 %></th>	
+		
+			<th><%= f.label :week, "Week" %><%= f.radio_button  :title, 3 %></th>
+			<th><%= f.label :month, "Month" %><%= f.radio_button  :title, 4 %></th>
+			</tr>
+		</table>
   <div class="actions">
-    <%= f.submit :class =>'btn btn-mini btn-info'%>
+    <%= f.submit :class =>'btn btn-large btn-info'%>
   </div>
 </div>
+</div>
+  </div>
 
 <% end %>
+</div>

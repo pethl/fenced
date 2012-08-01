@@ -1,8 +1,18 @@
 <% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
+<br>
 
-<div class="row">
-  <div class="span6 offset5">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	
+      <h1>Update<br>profile</h1>
+<p>Enter password and
+<br>password confirmation
+<br>to save changes</p>
+
+    </div>
+    <div class="span6">
+<br>
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -18,13 +28,12 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 
-
-     <%= f.label :twittername %>
+      <%= f.label :twittername %>
       <%= f.text_field :twittername %>
 
       <%= f.label "Year of Your Birth" %>
       <%= f.text_field :yob %>
-
+<br>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 

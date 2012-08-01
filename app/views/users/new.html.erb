@@ -1,24 +1,24 @@
-
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<br><br>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	
+      <h1>Sign Up</h1>
+
+    </div>
+    <div class="span6">
+	
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-      .
-      .
-      .
-    <% end %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
 
       <%= f.label :fullname %>
       <%= f.text_field :fullname %>
+
+	  <%= f.label :twittername %>
+      <%= f.text_field :twittername %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -28,8 +28,10 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
-
+<br><br>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
+
+    </div>
   </div>
 </div>
