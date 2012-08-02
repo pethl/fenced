@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span11 offset2">
+  <div class="span11 offset1">
 
 <% provide(:title, 'All dilemmas') %>	
 <h1>All Our Dilemmas</h1>
@@ -47,10 +47,10 @@
 		<td><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></td>
 			<td><%= link_to 'Voting?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></td>
 			<td><% if current_user?(dilemma.user) %>
-			    <%= link_to "Delete", dilemma, method: :delete,
+			    <%= link_to "", dilemma, :class => "icon-remove-sign icon-white", method: :delete,
 			                                     data: { confirm: "You sure?" },
 			                                     title: dilemma.id %>
-			 <% end %></td>
+			  <% end %></td>
 			
 	    
 	  </tr>

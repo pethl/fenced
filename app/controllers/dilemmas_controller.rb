@@ -2,7 +2,7 @@ class DilemmasController < ApplicationController
   require 'bitly'
     before_filter :signed_in_user,  only: [:create, :edit, :destroy]
     before_filter :correct_user,   only: :destroy
-    before_filter :admin_user,     only: :destroy
+   
 
   
   # GET /dilemmas
@@ -88,13 +88,8 @@ class DilemmasController < ApplicationController
   # DELETE /dilemmas/1
   # DELETE /dilemmas/1.json
   def destroy
-    @dilemma = Dilemma.find(params[:id])
     @dilemma.destroy
-
-    respond_to do |format|
-      format.html { redirect_to dilemmas_url }
-      format.json { head :no_content }
-    end
+       redirect_to user_path(@dilemma.user_id)
   end  
   
   private    

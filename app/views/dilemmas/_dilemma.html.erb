@@ -1,11 +1,13 @@
 <li>
-	  <%= link_to dilemma.status, dilemma %> | 
-  <span class="dilemma"><%= dilemma.dilemma %></span><br>
-  <span class="timestamp">
-    Created <%= time_ago_in_words(dilemma.created_at) %> ago.
-  </span>
+	 <%= link_to dilemma.id, dilemma %> | 
+	<span class="dilemma"><%= dilemma.status %></span> |
+  	<span class="dilemma"><%= dilemma.dilemma %></span><br>
+
+  	<span class="timestamp">Created <%= time_ago_in_words(dilemma.created_at) %> ago.</span>  |
+	<span class="dilemma"><%= link_to "Results", dilemma_response_path(dilemma,response) %></span> |
+
 <% if current_user?(dilemma.user) %>
-    <%= link_to "delete", dilemma, method: :delete,
+    <%= link_to "", dilemma, :class => "icon-remove-sign icon-white", method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: dilemma.id %>
   <% end %>
