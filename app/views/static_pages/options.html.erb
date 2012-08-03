@@ -20,7 +20,10 @@ Sign up for account.
 <br>
 <%= link_to "Sign Me In", new_session_path, class: "btn btn-success" %>
 Already a user?
-
+<br>
+<br>
+<%= link_to "Create My Dilemma", new_dilemma_path, class: "btn btn-inverse" %>
+Already signed in?
 </p>
 <br>
 <br>
@@ -28,7 +31,7 @@ Already a user?
 	but you do need to find the dilemma... </b>
 <br>
 <br>
-<%= link_to "Search for a dilemma", dilemma_search_path, :class =>'btn btn-mini btn-success' %>
+<%= link_to "Search for a dilemma", dilemma_search_path, :class =>'btn btn-mini ' %>
 </div>
 </div>
 </div>
