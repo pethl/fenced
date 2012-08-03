@@ -4,16 +4,6 @@
 <% provide(:title, 'All dilemmas') %>	
 <h1>All Our Dilemmas</h1>
 
-
-<form>
-	<%= text_field_tag :search, params[:search]  %>
-    <%= submit_tag "Search", :name => nil %>
- 	</form>
-
-<%= form_tag dilemmas_path, :method => 'get' do %>
-  <% end %>
-
-
 <%= will_paginate %>
 
 <ul class="dilemmas">

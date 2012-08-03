@@ -1,0 +1,6 @@
+<ul>
+   <% @dilemmas.each do |dilemma| %>
+ <li><%= link_to dilemma.dilemma, 
+   :action => 'show', :id => dilemma.id  %></li>
+ <% end %>
+ </ul>

@@ -3,12 +3,14 @@ class DilemmasController < ApplicationController
     before_filter :signed_in_user,  only: [:create, :edit, :destroy]
     before_filter :correct_user,   only: :destroy
    
-
+ def search
+   @dilemmas = Dilemma.search(params[:search])
+ end
   
   # GET /dilemmas
   # GET /dilemmas.json
   def index
-    @dilemmas = Dilemma.search(params[:search])
+
     
     @dilemmas = Dilemma.paginate(page: params[:page])
   end
@@ -16,9 +18,9 @@ class DilemmasController < ApplicationController
 
   # GET /dilemmas/1
   # GET /dilemmas/1.json
-  def show
-        
+  def show  
     @dilemma = Dilemma.find(params[:id])
+    
     
     if params['post_to_twitter']
        respond_to do |format|
@@ -112,6 +114,7 @@ class DilemmasController < ApplicationController
       tweet = "@" + user + ": Follow link to vote on my question - " + @dilemma.shorten_url
       Twitter.update(tweet)
     end
+ 
   
 end
 
