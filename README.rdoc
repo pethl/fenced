@@ -1,6 +1,16 @@
 
 This application has been created by Lisa Pethick - admin@fencedweller.com
 
+Much of this application was written with the help of Michael Hartl's online rails guide - therefore the following is included.
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * Michael Hartl wrote this code. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return.
+ * ----------------------------------------------------------------------------
+ */
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

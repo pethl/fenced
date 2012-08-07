@@ -10,6 +10,11 @@ class StaticPagesController < ApplicationController
         redirect_to dilemma_path
   end
 
+  def badvote
+  
+  end
+  
+  
   def index
   end
 

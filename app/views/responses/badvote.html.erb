@@ -1,0 +1,23 @@
+<% provide(:title, 'Naughty') %>
+<br><br>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	
+<h1>You<br>missed<br>something</h1>
+    
+</div>
+    <div class="span6">
+<br>
+<br>
+<b>To enter a vote you need to click 'Yes' or 'No' and you need to enter your Twitter name to prove your vote is unique. <br><br>Please go back and try again, we want your vote.</b>
+<br>
+<br>
+<br>
+<%= link_to "Go back to vote", new_dilemma_response_path(@dilemma,response), :class => 'btn btn-mini btn-success'  %>
+<br>
+<br>
+</body>
+</div>
+</div>

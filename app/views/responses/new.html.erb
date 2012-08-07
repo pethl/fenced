@@ -4,42 +4,41 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-	
-<h1>Respond to<br> this dilemma</h1>
-    
-</div>
-    <div class="span6">
-<br>
-	<%= form_for [@dilemma, @response] do |f| %>
-
-	<div class="controls">
-		<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+		<h1>Respond<br>to this<br>dilemma</h1>
 	</div>
-	<% end %>
-</blockquote>
-<br>	
-<%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
+    
+    <div class="span7"><br>
+		<%= form_for [@dilemma, @response] do |f| %>
+		
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+		</div>
+		<% end %><br>
+			
+		<%= form_for([@dilemma, @dilemma.responses.build]) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
 
-<div class="span3">
-<table class="table table-condensed" >
-  <tr>
-    <th>Yes</th>
-    <th>No</th>
-  </tr>
-<tr>
-    <td><%= f.radio_button :yes, "Yes" %></td>
-    <td><%= f.radio_button :yes, "No" %></td>
-</tr>
-</table>
+		<div class="span6">
+			
+		
+			
+			<table class="table table-condensed" >
+  				<tr>
+    				<th><center>Yes</center></th>
+    				<th><center>No</center></th>
+  				</tr>
+				<tr>
+    				<td><center><%= f.radio_button :yes, "Yes" %></center></td>
+    				<td><center><%= f.radio_button :yes, "No" %></center></td>
+				</tr>
+			</table>
+			<label><strong>Please enter your twittername for verification.</strong><br> 
+			<i>We will not use or share your twittername.</i></label>
+			  <%= f.text_field :user,  %><br />
+			
+ 			<%= f.submit "Record My Vote", :class =>'btn btn-large btn-info' %>
 
- <%= f.submit "Record My Vote", :class =>'btn btn-large btn-info' %>
+			<% end %>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-
-<% end %>
-
-
-
-
-

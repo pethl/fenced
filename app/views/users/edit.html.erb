@@ -6,15 +6,15 @@
     <div class="span3">
 	
       <h1>Update<br>profile</h1>
-<p>Enter password and
+<center><p>Enter password and
 <br>password confirmation
-<br>to save changes</p>
+<br>to save changes</p></center>
 
     </div>
     <div class="span6">
 <br>
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+	<%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :fullname %>
       <%= f.text_field :fullname %>
