@@ -16,8 +16,8 @@ describe "User pages" do
         visit users_path
       end
 
-      it { should have_selector('title', text: 'All users') }
-      it { should have_selector('h1',    text: 'All users') }
+      it { should have_selector('title', text: 'Users') }
+      it { should have_selector('h1',    text: 'Users') }
 
   describe "pagination" do
 
@@ -62,7 +62,7 @@ describe "User pages" do
      let(:user) { FactoryGirl.create(:user) }
      before { visit user_path(user) }
 
-    it { should have_selector('h3',    text: user.fullname) }
+    it { should have_selector('h1',    text: user.fullname) }
     it { should have_selector('title', text: user.fullname) }
   end
   
@@ -89,10 +89,11 @@ describe "User pages" do
 
       describe "with valid information" do
         before do
-          fill_in "Fullname",         with: "Example User"
-          fill_in "Email",        with: "user@example.com"
-          fill_in "Password",     with: "foobar"
-          fill_in "Confirmation", with: "foobar"
+          fill_in "user_fullname",        with: "Test User"
+          fill_in "user_twittername",        with: "Twitname"
+          fill_in "user_email",        with: "user@example.com"
+          fill_in "user_password",     with: "foobar"  
+          fill_in "user_password_confirmation",    with: "foobar"  
         end
 
         it "should create a user" do
@@ -121,7 +122,7 @@ describe "User pages" do
             end
 
         describe "page" do
-          it { should have_selector('h1',    text: "Update your profile") }
+          it { should have_selector('h1',    text: "Update") }
           it { should have_selector('title', text: "Edit user") }
         end
 

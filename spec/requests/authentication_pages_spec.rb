@@ -20,8 +20,8 @@ describe "Authentication" do
       before { sign_in user }
 
             it { should have_selector('title', text: user.fullname) }
-            it { should have_link('Profile',  href: user_path(user)) }
-            it { should have_link('Settings', href: edit_user_path(user)) }
+            it { should have_link('View Profile',  href: user_path(user)) }
+            it { should have_link('Update Profile', href: edit_user_path(user)) }
             it { should have_link('Sign out', href: signout_path) }
             it { should_not have_link('Sign in', href: signin_path) }
           end

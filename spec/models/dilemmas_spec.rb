@@ -38,7 +38,7 @@ describe Dilemma do
     end
 
     describe "with dilemma length that is too long" do
-      before { @dilemma.dilemma = "a" * 350 }
+      before { @dilemma.dilemma = "a" * 352 }
       it { should_not be_valid }
     end
 end

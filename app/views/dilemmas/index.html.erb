@@ -10,29 +10,31 @@
 	
 	<table class="table table-bordered" >
 	  <tr>
-		<th>User</th>    
-		<th>ID</th>
+		<th><center>User Id</center></th>  
+		<th>Twitter name</th>    
+		<th><center>Dilemma Id</center></th>
 	    <th>Dilemma</th>
 	    <th>Status</th>
 	    <th>Url</th>
-	    <th align="center">Answer</th>
-	    <th align="center">Duration</th>
- 		<th align="center">Responses Count</th>
-	    <th>Voting page</th>
-	    <th>See responses</th>
-	    <th>Owner Only Delete</th>
+	    <th><center>Answer style</center></th>
+	    <th><center>Closes at</center></th>
+ 		<th><center>Responses Count</center></th>
+	    <th><center>Voting page</center></th>
+	    <th><center>See responses</center></th>
+	    <th><center>Owner Delete</center></th>
 	  </tr>
 	
  	<% @dilemmas.each do |dilemma| %>
 
 	<tr>
-		<td><%= dilemma.user_id %></td>    
+		<td><%= dilemma.user_id %></td> 
+		<td><%= dilemma.user.twittername %></td>    
 		<td><%= link_to dilemma.id, dilemma %></td>
 	    <td><%= dilemma.dilemma %></td>
 	    <td><%= dilemma.status %></td>
 	    <td><%= dilemma.shorten_url %></td>
 	    <td><center><%= dilemma.ans_opt %></center></td>
-		<td><center><%= dilemma.title %></center></td>
+		<td><center><%= l dilemma.close_timestamp, :format => :short %></center></td>
 		<td><center><%= dilemma.responses.count %> </center></td>
 		<td><center><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></center></td>
 		<td><center><%= link_to 'Voting?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></center></td>

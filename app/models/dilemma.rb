@@ -2,14 +2,17 @@
 #
 # Table name: dilemmas
 #
-#  id         :integer         not null, primary key
-#  uuid       :string(36)
-#  title      :string(255)
-#  dilemma    :text
-#  status     :string(255)
-#  ans_opt    :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id              :integer         not null, primary key
+#  uuid            :string(36)
+#  title           :string(255)
+#  dilemma         :text
+#  status          :string(255)
+#  ans_opt         :string(255)
+#  shorten_url     :string(255)
+#  close_timestamp :datetime
+#  user_id         :integer
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
 #
 
 class Dilemma < ActiveRecord::Base
@@ -20,6 +23,7 @@ class Dilemma < ActiveRecord::Base
   
   validates :id, :uniqueness =>true
   validates :dilemma, :presence =>true
+   validates :dilemma, length: { maximum: 350 }
   validates :status, :inclusion => { :in => "Open, Closed, Suspended" }
   validates :ans_opt, :inclusion => { :in => "1, 2, 3" }
     validates :title, :presence =>true, :inclusion => { :in => "1, 2, 3, 4" }
@@ -47,8 +51,9 @@ has_many :responses, dependent: :destroy
  
  before_create :create_randomid
    before_create :bitly_body
-   before_create :set_close_time
    before_create :initial_post_twitter
+   before_save :set_close_time
+   
  
   private
 
@@ -69,17 +74,23 @@ has_many :responses, dependent: :destroy
       end
       
       def set_close_time
+          if self.created_at.nil?
+            x = Time.now
+          else
+            x = self.created_at
+        end 
         
         if self.title == "1"
-                  self.close_timestamp = 2.hours.from_now
+              self.close_timestamp =  x + 2.hours
         elsif self.title == "2"
-                  self.close_timestamp = 25.hours.from_now
-          elsif self.title == "3"
-                  self.close_timestamp = 1.week.from_now
-          else self.title == "3"
-                  self.close_timestamp = 1.month.from_now
+              self.close_timestamp = x + 25.hours
+        elsif self.title == "3"
+              self.close_timestamp = x + 1.week
+        else self.title == "3"
+              self.close_timestamp = x + 1.month
         end
       end
+      
       
       
       def initial_post_twitter

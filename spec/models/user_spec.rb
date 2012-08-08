@@ -2,13 +2,16 @@
 #
 # Table name: users
 #
-#  id          :integer         not null, primary key
-#  fullname    :string(255)
-#  email       :string(255)
-#  twittername :string(255)
-#  yob         :string(255)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id              :integer         not null, primary key
+#  fullname        :string(255)
+#  email           :string(255)
+#  twittername     :string(255)
+#  yob             :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
 #
 
 require 'spec_helper'
@@ -19,7 +22,9 @@ describe User do
      @user = User.new(fullname: "Example User", email: "user@example.com", 
                           yob: "1970", twittername: "lpeth", 
                           password: "foobar", password_confirmation: "foobar") 
-        end
+      end
+
+      
 
   subject { @user }
 
@@ -120,7 +125,7 @@ describe User do
 
         before { @user.save }
         let!(:older_dilemma) do 
-          FactoryGirl.create(:dilemma, user: @user, created_at: 1.day.ago)
+          FactoryGirl.create(:dilemma, @dilemma, user: @user, created_at: 1.day.ago)
         end
         let!(:newer_dilemma) do
           FactoryGirl.create(:dilemma, user: @user, created_at: 1.hour.ago)
@@ -129,11 +134,11 @@ describe User do
         it "should have the right dilemmas in the right order" do
           @user.dilemmas.should == [newer_dilemma, older_dilemma]
         end
-        it "should destroy associated microposts" do
-              microposts = @user.microposts
+        it "should destroy associated dilemmas" do
+              dilemmas = @user.dilemmas
               @user.destroy
-              microposts.each do |micropost|
-                Micropost.find_by_id(micropost.id).should be_nil
+              dilemmas.each do |dilemma|
+                Dilemma.find_by_id(dilemma.id).should be_nil
               end
             end
       end

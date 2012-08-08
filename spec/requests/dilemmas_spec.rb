@@ -4,9 +4,9 @@ describe "Dilemmas" do
 
   describe "Index" do
 
-    it "should have the content 'ID'" do
+    it "should have the content 'Dilemma Id'" do
       visit '/dilemmas'
-      page.should have_content('ID')
+      page.should have_content('Dilemma Id')
     end
   end
   

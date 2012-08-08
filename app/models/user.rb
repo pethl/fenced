@@ -2,14 +2,16 @@
 #
 # Table name: users
 #
-#  id          :integer         not null, primary key
-#  fullname    :string(255)
-#  email       :string(255)
-#  twittername :string(255)
-#  yob         :string(255)
-#  password_digest         :string(255)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id              :integer         not null, primary key
+#  fullname        :string(255)
+#  email           :string(255)
+#  twittername     :string(255)
+#  yob             :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -25,6 +27,8 @@ class User < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :twittername, presence: true
+  validates :twittername, length: { maximum: 20 }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   

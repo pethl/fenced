@@ -5,7 +5,7 @@
   <div class="row-fluid">
     <div class="span3">
 	
-      <h1>Sign Up</h1>
+      <h1>Sign up</h1>
 
     </div>
     <div class="span6">
@@ -14,19 +14,19 @@
   	<%= render 'shared/error_messages', object: f.object %>
 
 
-      <%= f.label :fullname %>
+<strong>Name</strong> <br>
       <%= f.text_field :fullname %>
-
-	  <%= f.label :twittername %>
+<br>
+<strong>Twitter name</strong> - so your followers can vote<br>
       <%= f.text_field :twittername %>
-
-      <%= f.label :email %>
+<br>
+<strong>Email</strong> - this is your unique logon</strong><br>
       <%= f.text_field :email %>
-
-      <%= f.label :password %>
+<br>
+<strong>Password</strong> - you know how these work<br>
       <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
+<br>
+<strong>Password confirmation</strong> - retype your password!<br>
       <%= f.password_field :password_confirmation %>
 <br><br>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>

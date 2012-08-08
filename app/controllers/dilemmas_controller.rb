@@ -78,7 +78,7 @@ class DilemmasController < ApplicationController
 
     respond_to do |format|
       if @dilemma.update_attributes(params[:dilemma])
-        format.html { redirect_to @dilemma, notice: 'Ok your dilemma has been updated, I hope you have it right this time.' }
+        format.html { redirect_to @dilemma, notice: "Ok your dilemma has been updated, let's hope you have it right this time." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
