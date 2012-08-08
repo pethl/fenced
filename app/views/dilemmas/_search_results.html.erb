@@ -1,0 +1,15 @@
+
+<% if @dilemmas.count > 1 %>
+	
+	<ul><% @dilemmas.each do |dilemma| %>
+	 <li><%= dilemma.dilemma %></li>
+	 		<% end %></ul>
+	
+	<% else %>
+
+	<ul><% @dilemmas.each do |dilemma| %>
+	<li><%= link_to dilemma.dilemma, 
+	   :action => 'show', :id => dilemma.id  %>
+	<% end %></ul>
+
+<% end %>

@@ -9,24 +9,25 @@
     
 </div>
     <div class="span6">
-<br>  	
-<b>To create a dilemma you need to sign in as a user. </b>
-<br>
-<br>
-<p>
-<%= link_to "Sign Me Up", new_user_path, class: "btn btn-info" %>
-Sign up for account.
-<br>
-<br>
-<%= link_to "Sign Me In", new_session_path, class: "btn btn-success" %>
-Already a user?
-<br>
-<br>
-<%= link_to "Create My Dilemma", new_dilemma_path, class: "btn btn-inverse" %>
-Already signed in?
+<br>  
+
+<% if signed_in? %>
+	<%= link_to "Create My Dilemma", new_dilemma_path, class: "btn btn-inverse" %><br>
+	You are signed in as: <%= current_user.twittername%> <br>
+	Not you? <%= link_to "Sign in", signin_path %>
+	
+<% else %>
+	<b>To create a dilemma you need to sign in as a user. </b>
+	<br><br>
+	<p>
+	<%= link_to "Sign Me Up", new_user_path, class: "btn btn-info" %>
+	Sign up for account.	
+	<br><br>
+	<%= link_to "Sign Me In", new_session_path, class: "btn btn-success" %>
+	Already a user?
+<% end %>
 </p>
-<br>
-<br>
+<br><br>
 <b>To vote on a dilemma you don't need an account,<br> 
 	but you do need to find the dilemma... </b>
 <br>
