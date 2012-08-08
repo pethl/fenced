@@ -3,16 +3,20 @@
 
 <table class="table table-bordered table-condensed" >
   <tr>
-    <th>User</th>
+    <td><% if current_user.admin? %>
+			    User
+			  <% end %></td>
     <th>When</th>
-    <th>Vote</th>
+    <th><center>Vote</center></th>
   </tr>
 
 <% @responses.each do |response| %>
   <tr>
-    <td><%= (response).user %></td>
+	<td>	<% if current_user.admin? %>
+			    <%= (response).user %>
+			  <% end %></td>
     <td><%= l (response).created_at, :format => :short %></td>
-    <td align="center"><%= (response).yes %></td>
+    <td><center><%= (response).yes %></center></td>
   </tr>
 <% end %>
 

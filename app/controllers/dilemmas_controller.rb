@@ -2,6 +2,7 @@ class DilemmasController < ApplicationController
   require 'bitly'
     before_filter :signed_in_user,  only: [:create, :edit, :destroy]
     before_filter :correct_user,   only: :destroy
+    before_filter :admin_user,     only: [:index]
    
  def search
    @dilemmas = Dilemma.search(params[:search])
@@ -49,7 +50,9 @@ class DilemmasController < ApplicationController
 
   # GET /dilemmas/1/edit
   def edit
-    @dilemma = Dilemma.find(params[:id])
+
+  @dilemma = Dilemma.find(params[:id])
+    
   end
 
   # POST /dilemmas

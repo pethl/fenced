@@ -18,19 +18,22 @@
 <br>
 <p><%= render "voting_stat" %></p>
 <br>		
-<%= link_to 'Respond', new_dilemma_response_path(@dilemma,response), :class => 'btn btn-mini btn-success' %>
-<br>
-<br>
+	<% unless current_user?(@dilemma.user) %>
+	<%= link_to 'Respond', new_dilemma_response_path(@dilemma,response), :class => 'btn btn-mini btn-success' %>
+	<% end %>
+<br><br>
+
 	<b>Re-post this link to Twitter to get more responses</b>
 		<div class="controls">
 			<span class="input-xlarge uneditable-input"><%= @dilemma.shorten_url %>
 		</div>
-<br>
-<br>
-<br>
-<%= link_to 'Home', static_pages_options_path %> |
-<%= link_to 'My Profile', user_path(@dilemma.user_id) %> |
+<br><br><br>
 
-<%= link_to 'Edit This Dilemma', edit_dilemma_path(@dilemma) %>
+<%= link_to 'Home', static_pages_options_path %> |
+<%= link_to 'My Profile', user_path(current_user) %> |
+
+<% if current_user?(@dilemma.user) %>
+	    <%= link_to 'Edit This Dilemma', edit_dilemma_path(@dilemma) %>
+	  <% end %>
 </div>
 </div>
