@@ -19,6 +19,7 @@ class Dilemma < ActiveRecord::Base
   attr_accessible :ans_opt, :dilemma, :id, :status, :title, :uuid, :close_timestamp
   belongs_to :user
   validates :user_id, presence: true
+  after_find :status_check
 
   
   validates :id, :uniqueness =>true
@@ -56,6 +57,15 @@ has_many :responses, dependent: :destroy
    
  
   private
+      def status_check
+        if self.close_timestamp < Time.now
+          self.status = "Closed"
+        else  
+          self.status = "Open"  
+      end
+      end
+
+
 
       def create_randomid
           id = SecureRandom.random_number.to_s

@@ -36,8 +36,18 @@
 	    <td><center><%= dilemma.ans_opt %></center></td>
 		<td><center><%= l dilemma.close_timestamp, :format => :short %></center></td>
 		<td><center><%= dilemma.responses.count %> </center></td>
-		<td><center><%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %></center></td>
+		
+		<td><center><% if dilemma.status == "Open" %>
+				<%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %>
+				<% else %>
+			<strong>Voting Closed </strong>
+				<% end %></center></td>
+		
+		
 		<td><center><%= link_to 'Voting?', dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-warning' %></center></td>
+		
+		
+		
 		<td><center><% if current_user?(dilemma.user) %>
 			    <%= link_to "", dilemma, :class => "icon-remove-sign icon-white", method: :delete,
 			                                     data: { confirm: "You sure?" },
