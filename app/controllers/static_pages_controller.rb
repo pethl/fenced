@@ -11,9 +11,11 @@ class StaticPagesController < ApplicationController
   end
 
   def badvote
-  
   end
   
+  def aftervote
+
+  end
   
   def index
   end
@@ -23,10 +25,7 @@ class StaticPagesController < ApplicationController
   
   
   def search
-
-      @Static_pages = Dilemma.search(params[:search])
-      
-      
+      @Static_pages = Dilemma.search(params[:search]) 
     end
   
 end

@@ -6,6 +6,7 @@
     <td><% if current_user.admin? %>
 			    User
 			  <% end %></td>
+			<td>Twitter_name</td>
     <th>When</th>
     <th><center>Vote</center></th>
   </tr>
@@ -15,6 +16,8 @@
 	<td>	<% if current_user.admin? %>
 			    <%= (response).user %>
 			  <% end %></td>
+			
+		<td>	<%= (response).twitter_name %></td>
     <td><%= l (response).created_at, :format => :short %></td>
     <td><center><%= (response).yes %></center></td>
   </tr>

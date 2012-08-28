@@ -40,7 +40,7 @@
 		<td><center><% if dilemma.status == "Open" %>
 				<%= link_to 'Respond', new_dilemma_response_path(dilemma,response), :class => 'btn btn-mini btn-success' %>
 				<% else %>
-			<strong>Voting Closed </strong>
+			Voting Closed
 				<% end %></center></td>
 		
 		
@@ -48,11 +48,10 @@
 		
 		
 		
-		<td><center><% if current_user?(dilemma.user) %>
-			    <%= link_to "", dilemma, :class => "icon-remove-sign icon-white", method: :delete,
+		<td><center><%= link_to "", dilemma, :class => "icon-remove-sign icon-white", method: :delete,
 			                                     data: { confirm: "You sure?" },
 			                                     title: dilemma.id %>
-			  <% end %></center></td>
+			  </center></td>
 			
 	    
 	  </tr>

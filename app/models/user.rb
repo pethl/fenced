@@ -15,7 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :fullname, :email, :password, :password_confirmation, :twittername, :yob
+  attr_accessible :fullname, :email, :password, :password_confirmation, :twittername, :yob, :admin
   has_secure_password
    has_many :dilemmas, dependent: :destroy
 
