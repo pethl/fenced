@@ -5,6 +5,8 @@
   <tr>
     <td><% if current_user.admin? %>
 			    User
+			  <% else %>
+			User name witheld
 			  <% end %></td>
 			<td>Twitter_name</td>
     <th>When</th>
@@ -15,6 +17,8 @@
   <tr>
 	<td>	<% if current_user.admin? %>
 			    <%= (response).user %>
+				<% else %>
+				User name witheld
 			  <% end %></td>
 			
 		<td>	<%= (response).twitter_name %></td>
