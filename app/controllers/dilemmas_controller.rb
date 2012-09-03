@@ -11,29 +11,17 @@ class DilemmasController < ApplicationController
   # GET /dilemmas
   # GET /dilemmas.json
   def index
-
-    
     @dilemmas = Dilemma.paginate(page: params[:page])
   end
-
 
   # GET /dilemmas/1
   # GET /dilemmas/1.json
   def show  
     @dilemma = Dilemma.find(params[:id])
-    
-    
-    if params['post_to_twitter']
-       respond_to do |format|
-           user = @dilemma.user_id.to_s
-           tweet = "@" + user + ": Follow link to vote on my question - " + @dilemma.shorten_url
-           Twitter.update(tweet)
-       end
-     elsif
+        
        respond_to do |format|
            format.html # show.html.erb
            format.json { render json: @dilemma }
-       end
      end 
   end
 
@@ -50,9 +38,7 @@ class DilemmasController < ApplicationController
 
   # GET /dilemmas/1/edit
   def edit
-
   @dilemma = Dilemma.find(params[:id])
-    
   end
 
   # POST /dilemmas
@@ -110,7 +96,6 @@ class DilemmasController < ApplicationController
     end
 
     def post_to_twitter
-
       require 'twitter'
       require 'oauth'
       user = @dilemma.user_id.to_s

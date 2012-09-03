@@ -76,11 +76,11 @@ has_many :responses, dependent: :destroy
   
       def bitly_body
           t = self.id.to_s
-          long_url= "http://fenced.herokuapp.com/dilemmas/" + t
+          long_url= "https://fenced.herokuapp.com/dilemmas/" + t
           Bitly.use_api_version_3
           bitly = Bitly.new('fencedweller','R_7b81aebd65ac551c78983d0ae57a0253')
           body = bitly.shorten(long_url)  
-                  self.shorten_url = body.short_url
+          self.shorten_url = body.short_url
       end
       
       def set_close_time
@@ -106,7 +106,7 @@ has_many :responses, dependent: :destroy
       def initial_post_twitter
         require 'twitter'
         require 'oauth'
-        user = self.user_id.to_s
+        user = self.user.twittername.to_s
         tweet = "@" + user + ": Follow this link to vote on my dilemma - " + self.shorten_url
         Twitter.update(tweet)
       end

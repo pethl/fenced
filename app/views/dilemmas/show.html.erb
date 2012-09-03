@@ -1,4 +1,4 @@
-<% provide(:title, "My Dilemma") %>
+<% provide(:title, "It's a dilemma...") %>
 
 <div class="container-fluid">
   <div class="row-fluid">
@@ -8,16 +8,14 @@
 	</div>
  
   <div class="span8">
-
 <br><br>
-		<div class="controls">
-			<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
-		</div>
+	<div class="controls">
+		<span class="input-xlarge uneditable-input"><%= @dilemma.dilemma %>
+	</div>
 
-<p><%= render "status_date" %></p>
-<br>
-<p><%= render "voting_stat" %></p>
-<br>		
+<p><%= render "status_date" %></p><br>
+<p><%= render "voting_stat" %></p><br>
+		
 	<% unless current_user?(@dilemma.user) %>
 	
 	<% if @dilemma.status == "Open" %>
@@ -26,18 +24,17 @@
 			<% end %>
 	<% end %>
 <br><br>
-<% if current_user?(@dilemma.user) && (@dilemma.status == "Open") %>
-	<b>Re-post this link to Twitter to get more responses</b>
+	<% if current_user?(@dilemma.user) && (@dilemma.status == "Open") %>
+		<b>Re-post this link to Twitter to get more responses</b>
 		<div class="controls">
 			<span class="input-xlarge uneditable-input"><%= @dilemma.shorten_url %>
 		</div>
-		<% end %>
+	<% end %>
 <br><br><br>
 
-<%= link_to 'Home', static_pages_options_path %> |
-<%= link_to 'My Profile', user_path(current_user) %> |
-
-<% if current_user?(@dilemma.user) && (@dilemma.status == "Open") %>
+	<% if current_user?(@dilemma.user) && (@dilemma.status == "Open") %>
+	<%= link_to 'Home', static_pages_options_path %> |
+	<%= link_to 'My Profile', user_path(current_user) %> |
 	    <%= link_to 'Edit This Dilemma', edit_dilemma_path(@dilemma) %>
 	 <% end %>
 </div>
