@@ -49,8 +49,10 @@ class DilemmasController < ApplicationController
 
     respond_to do |format|
       if @dilemma.save
-        format.html { redirect_to @dilemma, notice: 'You have created a dilemma!' }
+    
+        format.html { redirect_to @dilemma }
         format.json { render json: @dilemma, status: :created, location: @dilemma }
+        flash[:success] = 'You have created a dilemma! Check Twitter and RT the link so your followers can see it'
       else
         format.html { render action: "new" }
         format.json { render json: @dilemma.errors, status: :unprocessable_entity }

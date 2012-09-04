@@ -3,27 +3,25 @@
 
 <table class="table table-bordered table-condensed" >
   <tr>
-    <td><% if current_user.admin? %>
-			    User
-			  <% else %>
-			User name witheld
-			  <% end %></td>
-			<td>Twitter_name</td>
+    <th>Twitter id</th>
+	<th>Twitter fullname</th>
     <th>When</th>
     <th><center>Vote</center></th>
   </tr>
 
 <% @responses.each do |response| %>
   <tr>
-	<td>	<% if current_user.admin? %>
-			    <%= (response).user %>
-				<% else %>
-				User name witheld
-			  <% end %></td>
+	<td><%= (response).user %></td>
+	<td><%= (response).twitter_name %></td>
 			
-		<td>	<%= (response).twitter_name %></td>
     <td><%= l (response).created_at, :format => :short %></td>
-    <td><center><%= (response).yes %></center></td>
+    
+	<td>	<% if current_user.admin? %>
+			    <center><%= (response).yes %></center>
+			<% else %>
+			<i>	Secret Ballot! </i>
+			  <% end %></td>
+
   </tr>
 <% end %>
 
